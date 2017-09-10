@@ -7,13 +7,13 @@
 
 An HTTP stubbing library written in Swift.
 
-# Requirements
+## Requirements
 
 - Swift 4
 - iOS 9.3+
 - Xcode 9+
 
-# Installation
+## Requirements
 
 Hippolyte is available on [Cocoapods](http://cocoapods.org). In your `Podfile`:
 
@@ -21,7 +21,7 @@ Hippolyte is available on [Cocoapods](http://cocoapods.org). In your `Podfile`:
 pod 'Hippolyte'
 ```
 
-# Usage
+## Requirements
 
 To stub a request, first you need to create a `StubRequest` and `StubResponse`. You then register this stub with `Hippolyte` and tell it to intercept network requests by calling the `start()` method.
 
@@ -58,6 +58,6 @@ override func tearDown() {
 
 You can configure your stub response in a number of ways, such as having it return different HTTP status codes, headers, and errors.
 
-# License
+## Requirements
 
 Hippolyte is released under the MIT license. See LICENSE for details
