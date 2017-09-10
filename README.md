@@ -15,7 +15,7 @@ An HTTP stubbing library written in Swift.
 
 ## Requirements
 
-Hippolyte is available on [Cocoapods](http://cocoapods.org). In your `Podfile`:
+Hippolyte is available on [Cocoapods](http://cocoapods.org). Add it to your `Podfile`'s test target:
 
 ```ruby
 pod 'Hippolyte'
