@@ -7,9 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7766CF9E1F652D8F00B717B2 /* URLHook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7766CF9D1F652D8F00B717B2 /* URLHook.swift */; };
+		7766CFA01F652FD100B717B2 /* Matcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7766CF9F1F652FD100B717B2 /* Matcher.swift */; };
+		7766CFA21F65311200B717B2 /* URL+HippolyteAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7766CFA11F65311200B717B2 /* URL+HippolyteAdditions.swift */; };
+		7766CFA41F654F1800B717B2 /* DataMatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7766CFA31F654F1800B717B2 /* DataMatcherTests.swift */; };
+		7766CFA61F65515000B717B2 /* StringMatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7766CFA51F65515000B717B2 /* StringMatcherTests.swift */; };
+		7766CFA81F6552B100B717B2 /* RegexMatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7766CFA71F6552B100B717B2 /* RegexMatcherTests.swift */; };
+		7766CFAC1F65571800B717B2 /* StubRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7766CFAB1F65571800B717B2 /* StubRequestTests.swift */; };
 		77A290D81F62EADF001E70FA /* Hippolyte.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A290CE1F62EADF001E70FA /* Hippolyte.framework */; };
-		77A290DD1F62EADF001E70FA /* HippolyteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A290DC1F62EADF001E70FA /* HippolyteTests.swift */; };
 		77A290DF1F62EADF001E70FA /* Hippolyte.h in Headers */ = {isa = PBXBuildFile; fileRef = 77A290D11F62EADF001E70FA /* Hippolyte.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77A290E91F62EDF5001E70FA /* Hippolyte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A290E81F62EDF5001E70FA /* Hippolyte.swift */; };
+		77A290EB1F62EE40001E70FA /* StubRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A290EA1F62EE40001E70FA /* StubRequest.swift */; };
+		77A290ED1F62EEC2001E70FA /* StubResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A290EC1F62EEC2001E70FA /* StubResponse.swift */; };
+		77A290EF1F62F13E001E70FA /* HTTPClientHook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A290EE1F62F13E001E70FA /* HTTPClientHook.swift */; };
+		77A290F11F62F241001E70FA /* URLSessionHook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A290F01F62F241001E70FA /* URLSessionHook.swift */; };
+		77A2EA9D1F65589C0051E45A /* TestRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A2EA9C1F65589C0051E45A /* TestRequest.swift */; };
+		77A2EA9F1F6561A30051E45A /* HippolyteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A2EA9E1F6561A30051E45A /* HippolyteTests.swift */; };
+		77B806641F63E33A0077A365 /* HTTPStubURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B806631F63E33A0077A365 /* HTTPStubURLProtocol.swift */; };
+		77B806661F63E5670077A365 /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B806651F63E5670077A365 /* HTTPRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +38,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7766CF9D1F652D8F00B717B2 /* URLHook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHook.swift; sourceTree = "<group>"; };
+		7766CF9F1F652FD100B717B2 /* Matcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matcher.swift; sourceTree = "<group>"; };
+		7766CFA11F65311200B717B2 /* URL+HippolyteAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+HippolyteAdditions.swift"; sourceTree = "<group>"; };
+		7766CFA31F654F1800B717B2 /* DataMatcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMatcherTests.swift; sourceTree = "<group>"; };
+		7766CFA51F65515000B717B2 /* StringMatcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringMatcherTests.swift; sourceTree = "<group>"; };
+		7766CFA71F6552B100B717B2 /* RegexMatcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexMatcherTests.swift; sourceTree = "<group>"; };
+		7766CFAB1F65571800B717B2 /* StubRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubRequestTests.swift; sourceTree = "<group>"; };
 		77A290CE1F62EADF001E70FA /* Hippolyte.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hippolyte.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77A290D11F62EADF001E70FA /* Hippolyte.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hippolyte.h; sourceTree = "<group>"; };
 		77A290D21F62EADF001E70FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77A290D71F62EADF001E70FA /* HippolyteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HippolyteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		77A290DC1F62EADF001E70FA /* HippolyteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HippolyteTests.swift; sourceTree = "<group>"; };
 		77A290DE1F62EADF001E70FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77A290E81F62EDF5001E70FA /* Hippolyte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hippolyte.swift; sourceTree = "<group>"; };
+		77A290EA1F62EE40001E70FA /* StubRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubRequest.swift; sourceTree = "<group>"; };
+		77A290EC1F62EEC2001E70FA /* StubResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubResponse.swift; sourceTree = "<group>"; };
+		77A290EE1F62F13E001E70FA /* HTTPClientHook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientHook.swift; sourceTree = "<group>"; };
+		77A290F01F62F241001E70FA /* URLSessionHook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHook.swift; sourceTree = "<group>"; };
+		77A2EA9C1F65589C0051E45A /* TestRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRequest.swift; sourceTree = "<group>"; };
+		77A2EA9E1F6561A30051E45A /* HippolyteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HippolyteTests.swift; sourceTree = "<group>"; };
+		77B806631F63E33A0077A365 /* HTTPStubURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPStubURLProtocol.swift; sourceTree = "<group>"; };
+		77B806651F63E5670077A365 /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +103,16 @@
 			children = (
 				77A290D11F62EADF001E70FA /* Hippolyte.h */,
 				77A290D21F62EADF001E70FA /* Info.plist */,
+				77A290E81F62EDF5001E70FA /* Hippolyte.swift */,
+				77A290EA1F62EE40001E70FA /* StubRequest.swift */,
+				77A290EC1F62EEC2001E70FA /* StubResponse.swift */,
+				77A290EE1F62F13E001E70FA /* HTTPClientHook.swift */,
+				77A290F01F62F241001E70FA /* URLSessionHook.swift */,
+				77B806631F63E33A0077A365 /* HTTPStubURLProtocol.swift */,
+				77B806651F63E5670077A365 /* HTTPRequest.swift */,
+				7766CF9D1F652D8F00B717B2 /* URLHook.swift */,
+				7766CF9F1F652FD100B717B2 /* Matcher.swift */,
+				7766CFA11F65311200B717B2 /* URL+HippolyteAdditions.swift */,
 			);
 			path = Hippolyte;
 			sourceTree = "<group>";
@@ -80,7 +120,12 @@
 		77A290DB1F62EADF001E70FA /* HippolyteTests */ = {
 			isa = PBXGroup;
 			children = (
-				77A290DC1F62EADF001E70FA /* HippolyteTests.swift */,
+				77A2EA9E1F6561A30051E45A /* HippolyteTests.swift */,
+				7766CFA31F654F1800B717B2 /* DataMatcherTests.swift */,
+				7766CFA51F65515000B717B2 /* StringMatcherTests.swift */,
+				7766CFA71F6552B100B717B2 /* RegexMatcherTests.swift */,
+				7766CFAB1F65571800B717B2 /* StubRequestTests.swift */,
+				77A2EA9C1F65589C0051E45A /* TestRequest.swift */,
 				77A290DE1F62EADF001E70FA /* Info.plist */,
 			);
 			path = HippolyteTests;
@@ -148,6 +193,7 @@
 				TargetAttributes = {
 					77A290CD1F62EADF001E70FA = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					77A290D61F62EADF001E70FA = {
@@ -196,6 +242,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77A290F11F62F241001E70FA /* URLSessionHook.swift in Sources */,
+				77A290ED1F62EEC2001E70FA /* StubResponse.swift in Sources */,
+				77A290E91F62EDF5001E70FA /* Hippolyte.swift in Sources */,
+				77A290EB1F62EE40001E70FA /* StubRequest.swift in Sources */,
+				7766CF9E1F652D8F00B717B2 /* URLHook.swift in Sources */,
+				77B806661F63E5670077A365 /* HTTPRequest.swift in Sources */,
+				7766CFA21F65311200B717B2 /* URL+HippolyteAdditions.swift in Sources */,
+				77A290EF1F62F13E001E70FA /* HTTPClientHook.swift in Sources */,
+				7766CFA01F652FD100B717B2 /* Matcher.swift in Sources */,
+				77B806641F63E33A0077A365 /* HTTPStubURLProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,7 +259,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77A290DD1F62EADF001E70FA /* HippolyteTests.swift in Sources */,
+				77A2EA9F1F6561A30051E45A /* HippolyteTests.swift in Sources */,
+				7766CFA81F6552B100B717B2 /* RegexMatcherTests.swift in Sources */,
+				7766CFA41F654F1800B717B2 /* DataMatcherTests.swift in Sources */,
+				7766CFA61F65515000B717B2 /* StringMatcherTests.swift in Sources */,
+				7766CFAC1F65571800B717B2 /* StubRequestTests.swift in Sources */,
+				77A2EA9D1F65589C0051E45A /* TestRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +395,7 @@
 		77A290E31F62EADF001E70FA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -346,6 +408,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.schnaub.Hippolyte;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -354,6 +417,7 @@
 		77A290E41F62EADF001E70FA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -374,6 +438,7 @@
 		77A290E61F62EADF001E70FA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = HippolyteTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -387,6 +452,7 @@
 		77A290E71F62EADF001E70FA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = HippolyteTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

@@ -3,30 +3,75 @@
 //
 
 import XCTest
-@testable import Hippolyte
+import Hippolyte
 
 class HippolyteTests: XCTestCase {
-  
-  override func setUp() {
-    super.setUp()
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-  }
 
   override func tearDown() {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
     super.tearDown()
+    Hippolyte.shared.stop()
   }
 
-  func testExample() {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+  func testUnmatchedRequestThrows() {
+    let request = TestRequest(method: .GET, url: URL(string: "http://www.apple.com")!)
+
+    XCTAssertThrowsError(try Hippolyte.shared.response(for: request))
   }
 
-  func testPerformanceExample() {
-    // This is an example of a performance test case.
-    self.measure {
-      // Put the code you want to measure the time of here.
+  func testMatchedRequest() {
+    let url = URL(string: "http://www.apple.com")!
+    var stub = StubRequest(method: .GET, url: url)
+    let response = StubResponse(statusCode: 404)
+    stub.response = response
+    Hippolyte.shared.add(stubbedRequest: stub)
+
+    let request = TestRequest(method: .GET, url: url)
+    let result = try? Hippolyte.shared.response(for: request)
+
+    XCTAssertEqual(result, response)
+
+    Hippolyte.shared.clearStubs()
+  }
+
+  func testStubIsReplaceable() {
+    let url = URL(string: "http://www.apple.com")!
+    var stub1 = StubRequest(method: .GET, url: url)
+    let response1 = StubResponse(statusCode: 404)
+    stub1.response = response1
+    Hippolyte.shared.add(stubbedRequest: stub1)
+
+    var stub2 = StubRequest(method: .GET, url: url)
+    let response2 = StubResponse(statusCode: 200)
+    stub2.response = response2
+    Hippolyte.shared.add(stubbedRequest: stub2)
+
+    let request = TestRequest(method: .GET, url: url)
+    let result = try? Hippolyte.shared.response(for: request)
+
+    XCTAssertEqual(result, response2)
+
+    Hippolyte.shared.clearStubs()
+  }
+
+  func testItStubsRegularNetworkCall() {
+    let url = URL(string: "http://www.apple.com")!
+    var stub = StubRequest(method: .GET, url: url)
+    var response = StubResponse()
+    let body = "Hippolyte".data(using: .utf8)!
+    response.body = body
+    stub.response = response
+    Hippolyte.shared.add(stubbedRequest: stub)
+
+    Hippolyte.shared.start()
+
+    let expectation = self.expectation(description: "Stubs network call")
+    let task = URLSession.shared.dataTask(with: url) { data, _, _ in
+      XCTAssertEqual(data, body)
+      expectation.fulfill()
     }
+    task.resume()
+
+    wait(for: [expectation], timeout: 1)
   }
 
 }
