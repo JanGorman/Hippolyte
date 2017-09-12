@@ -47,6 +47,22 @@ func testStub() {
 }
 ```
 
+It's also possible to configure a `StubRequest` to use a regular expression matcher to intercept URLs. The following example also shows a `StubResponse` that returns a certain status code:
+
+```swift
+func testStub() throws {
+    let regex = try NSRegularExpression(pattern: "http://www.google.com/+", options: [])
+    var stub = StubRequest(method: .GET, urlMatcher: RegexMatcher(regex: regex))
+    stub.response = StubResponse(statusCode: 404)
+    Hippolyte.shared.add(stubbedRequest: stub)
+    Hippolyte.shared.start()
+
+    myFictionalDataSource.get(URL(string: "http://www.google.com/foo.html")!) {
+        …
+    }
+}
+```
+
 Remember to tear down stubbing in your tests:
 
 ```swift
