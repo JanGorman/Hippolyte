@@ -64,6 +64,23 @@ func testStub() throws {
 }
 ```
 
+There are convenient Builder classes for both requests and responses:
+
+```swift
+func testStub() {
+    let response = StubResponse.Builder()
+        .stubResponse(withStatusCode: 204)
+        .addHeader(withKey: "X-Foo", value: "Bar")
+        .build()
+    let request = StubRequest.Builder()
+        .stubRequest(withMethod: .GET, url: URL(string: "http://www.apple.com")!)
+        .addResponse(response)
+        .build()
+    
+    …
+}
+```
+
 Remember to tear down stubbing in your tests:
 
 ```swift

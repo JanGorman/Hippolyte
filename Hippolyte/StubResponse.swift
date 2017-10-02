@@ -12,6 +12,46 @@ public protocol HTTPStubResponse {
 
 public struct StubResponse: HTTPStubResponse, Equatable {
 
+  public final class Builder {
+
+    private var response: StubResponse!
+
+    public init() {
+    }
+
+    public func defaultResponse() -> Builder {
+      response = StubResponse()
+      return self
+    }
+
+    public func stubResponse(withStatusCode statusCode: Int) -> Builder {
+      response = StubResponse(statusCode: statusCode)
+      return self
+    }
+
+    public func stubResponse(withError error: NSError) -> Builder {
+      response = StubResponse(error: error)
+      return self
+    }
+
+    public func addBody(_ body: Data) -> Builder {
+      assert(response != nil)
+      response.body = body
+      return self
+    }
+
+    public func addHeader(withKey key: String, value: String) -> Builder {
+      assert(response != nil)
+      response.headers[key] = value
+      return self
+    }
+
+    public func build() -> StubResponse {
+      return response
+    }
+
+  }
+
   public var statusCode: Int
   public var headers: [String : String]
   public var body: Data?

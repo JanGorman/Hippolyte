@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7706E6661F822F2C00734A1D /* StubResponseBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7706E6651F822F2C00734A1D /* StubResponseBuilderTests.swift */; };
 		7766CF9E1F652D8F00B717B2 /* URLHook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7766CF9D1F652D8F00B717B2 /* URLHook.swift */; };
 		7766CFA01F652FD100B717B2 /* Matcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7766CF9F1F652FD100B717B2 /* Matcher.swift */; };
 		7766CFA21F65311200B717B2 /* URL+HippolyteAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7766CFA11F65311200B717B2 /* URL+HippolyteAdditions.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7706E6651F822F2C00734A1D /* StubResponseBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubResponseBuilderTests.swift; sourceTree = "<group>"; };
 		7766CF9D1F652D8F00B717B2 /* URLHook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHook.swift; sourceTree = "<group>"; };
 		7766CF9F1F652FD100B717B2 /* Matcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matcher.swift; sourceTree = "<group>"; };
 		7766CFA11F65311200B717B2 /* URL+HippolyteAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+HippolyteAdditions.swift"; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				7766CFA51F65515000B717B2 /* StringMatcherTests.swift */,
 				7766CFA71F6552B100B717B2 /* RegexMatcherTests.swift */,
 				7766CFAB1F65571800B717B2 /* StubRequestTests.swift */,
+				7706E6651F822F2C00734A1D /* StubResponseBuilderTests.swift */,
 				77A2EA9C1F65589C0051E45A /* TestRequest.swift */,
 				77A290DE1F62EADF001E70FA /* Info.plist */,
 			);
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77A2EA9F1F6561A30051E45A /* HippolyteTests.swift in Sources */,
+				7706E6661F822F2C00734A1D /* StubResponseBuilderTests.swift in Sources */,
 				7766CFA81F6552B100B717B2 /* RegexMatcherTests.swift in Sources */,
 				7766CFA41F654F1800B717B2 /* DataMatcherTests.swift in Sources */,
 				7766CFA61F65515000B717B2 /* StringMatcherTests.swift in Sources */,

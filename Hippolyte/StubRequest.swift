@@ -10,6 +10,41 @@ public enum HTTPMethod: String {
 
 public struct StubRequest: Hashable {
 
+  public final class Builder {
+
+    private var request: StubRequest!
+
+    public init() {
+    }
+
+    public func stubRequest(withMethod method: HTTPMethod, url: URL) -> Builder {
+      request = StubRequest(method: method, url: url)
+      return self
+    }
+
+    public func stubRequest(withMethod method: HTTPMethod, urlMatcher: Matcher) -> Builder {
+      request = StubRequest(method: method, urlMatcher: urlMatcher)
+      return self
+    }
+
+    public func addHeader(withKey key: String, value: String) -> Builder {
+      assert(request != nil)
+      request.setHeader(key: key, value: value)
+      return self
+    }
+
+    public func addResponse(_ response: StubResponse) -> Builder {
+      assert(request != nil)
+      request.response = response
+      return self
+    }
+
+    public func build() -> StubRequest {
+      return request
+    }
+
+  }
+
   public let method: HTTPMethod
   public private(set) var headers: [String: String]
   public var response: StubResponse
