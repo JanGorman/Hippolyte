@@ -28,8 +28,8 @@ class StubRequestTests: XCTestCase {
     XCTAssertNotEqual(stub, other)
   }
 
-  func testStubWithMatcherMatches() {
-    let matcher = RegexMatcher(regex: try! NSRegularExpression(pattern: "^http://www.apple.com", options: []))
+  func testStubWithMatcherMatches() throws {
+    let matcher = RegexMatcher(regex: try NSRegularExpression(pattern: "^http://www.apple.com", options: []))
     let stub = StubRequest(method: .GET, urlMatcher: matcher)
 
     let request1 = TestRequest(method: .GET, url: URL(string: "http://www.apple.com/iPhone")!)
@@ -80,7 +80,7 @@ class StubRequestTests: XCTestCase {
     XCTAssertTrue(stub.matchesRequest(request))
   }
 
-  func testBuilderProducesStubs() {
+  func testBuilderProducesStubs() throws {
     let builder = StubRequest.Builder()
 
     let stub1 = builder.stubRequest(withMethod: .GET, url: URL(string: "http://www.apple.com")!)
@@ -90,7 +90,7 @@ class StubRequestTests: XCTestCase {
 
     XCTAssertNotNil(stub1)
 
-    let matcher = RegexMatcher(regex: try! NSRegularExpression(pattern: "^http://www.apple.com", options: []))
+    let matcher = RegexMatcher(regex: try NSRegularExpression(pattern: "^http://www.apple.com", options: []))
 
     let stub2 = builder.stubRequest(withMethod: .GET, urlMatcher: matcher)
       .addHeader(withKey: "X-Foo", value: "Bar")

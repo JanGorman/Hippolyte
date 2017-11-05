@@ -29,7 +29,8 @@ final class URLSessionHook: HTTPClientHook {
     return #selector(getter: URLSessionConfiguration.protocolClasses)
   }
 
-  @objc private func protocolClasses() -> [AnyClass] {
+  @objc
+  private func protocolClasses() -> [AnyClass] {
     return [HTTPStubURLProtocol.self]
   }
 
