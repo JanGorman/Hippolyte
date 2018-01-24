@@ -6,6 +6,14 @@ import Foundation
 
 final class HTTPStubURLProtocol: URLProtocol {
 
+  struct NoMatchError: Swift.Error, CustomStringConvertible {
+    let request: URLRequest
+    
+    var description: String {
+      return "No matching stub found for \(request)"
+    }
+  }
+
   override class func canInit(with request: URLRequest) -> Bool {
     guard let scheme = request.url?.scheme else { return false }
     return ["http", "https"].contains(scheme)
@@ -20,7 +28,10 @@ final class HTTPStubURLProtocol: URLProtocol {
   }
 
   override func startLoading() {
-    guard let stubbedResponse = try? Hippolyte.shared.response(for: request), let url = request.url else { return }
+    guard let stubbedResponse = try? Hippolyte.shared.response(for: request), let url = request.url else {
+      client?.urlProtocol(self, didFailWithError: NoMatchError(request: request))
+      return
+    }
 
     let cookieStorage = HTTPCookieStorage.shared
     cookieStorage.setCookies(HTTPCookie.cookies(withResponseHeaderFields: stubbedResponse.headers, for: url),
