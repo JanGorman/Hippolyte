@@ -15,7 +15,8 @@ Pod::Spec.new do |s|
   s.author             = { "Jan Gorman" => "gorman.jan@gmail.com" }
   s.social_media_url   = "http://twitter.com/JanGorman"
 
-  s.platform     = :ios, "9.3"
+  s.ios.deployment_target = '9.3'
+  s.osx.deployment_target = '10.13'
 
   s.source       = { :git => "https://github.com/JanGorman/Hippolyte.git", :tag => s.version}
 
