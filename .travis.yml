@@ -1,0 +1,9 @@
+language: objective-c
+osx_image: xcode9
+before_script:
+  - brew update && brew upgrade swiftlint
+script:
+  - bundle exec fastlane scan --code_coverage true
+  - bundle exec danger
+after_success:
+  - bash <(curl -s https://codecov.io/bash) -J 'Hippolyte'
