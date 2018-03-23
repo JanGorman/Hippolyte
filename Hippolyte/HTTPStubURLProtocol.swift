@@ -44,22 +44,20 @@ final class HTTPStubURLProtocol: URLProtocol {
       let response = HTTPURLResponse(url: url, statusCode: statusCode, httpVersion: nil,
                                      headerFields: stubbedResponse.headers)
 
-      if statusCode < 300 || statusCode > 399 || statusCode == 304 || statusCode == 305 {
-        let body = stubbedResponse.body
-        client?.urlProtocol(self, didReceive: response!, cacheStoragePolicy: .notAllowed)
-        client?.urlProtocol(self, didLoad: body!)
-        client?.urlProtocolDidFinishLoading(self)
-      } else {
+      if 300...399 ~= statusCode && (statusCode != 304 || statusCode != 305) {
         guard let location = stubbedResponse.headers["Location"], let url = URL(string: location),
               let cookies = cookieStorage.cookies(for: url) else { return }
 
         var redirect = URLRequest(url: url)
         redirect.allHTTPHeaderFields = HTTPCookie.requestHeaderFields(with: cookies)
-
-        client?.urlProtocol(self, wasRedirectedTo: redirect, redirectResponse: response!)
-        let error = NSError(domain: NSCocoaErrorDomain, code: NSUserCancelledError, userInfo: nil)
-        client?.urlProtocol(self, didFailWithError: error)
+		
+		client?.urlProtocol(self, wasRedirectedTo: redirect, redirectResponse: response!)
       }
+		
+      let body = stubbedResponse.body
+      client?.urlProtocol(self, didReceive: response!, cacheStoragePolicy: .notAllowed)
+      client?.urlProtocol(self, didLoad: body!)
+      client?.urlProtocolDidFinishLoading(self)
     }
   }
 
