@@ -65,7 +65,8 @@ class HippolyteTests: XCTestCase {
     Hippolyte.shared.start()
 
     let expectation = self.expectation(description: "Stubs network call")
-    let task = URLSession.shared.dataTask(with: url) { data, _, _ in
+    let session = URLSession(configuration: .default, delegate: nil, delegateQueue: nil)
+    let task = session.dataTask(with: url) { data, _, _ in
       XCTAssertEqual(data, body)
       expectation.fulfill()
     }
@@ -73,5 +74,42 @@ class HippolyteTests: XCTestCase {
 
     wait(for: [expectation], timeout: 1)
   }
+  
+  func testItStubsRedirectNetworkCall() {
+    let url = URL(string: "http://www.apple.com")!
+    var stub = StubRequest(method: .GET, url: url)
+    var response = StubResponse()
+	response = StubResponse(statusCode: 301)
+	response.headers = ["Location": "https://example.com/not/here"]
+    let body = "Hippolyte Redirect".data(using: .utf8)!
+    response.body = body
+    stub.response = response
+    Hippolyte.shared.add(stubbedRequest: stub)
+    
+    Hippolyte.shared.start()
+    
+    let expectation = self.expectation(description: "Stubs network redirect call")
+    let delegate = BlockRedirectDelegate()
+    let session = URLSession(configuration: .default, delegate: delegate, delegateQueue: nil)
+    let task = session.dataTask(with: url) { data, _, _ in
+      XCTAssertEqual(data, body)
+      expectation.fulfill()
+    }
+    task.resume()
+    wait(for: [expectation], timeout: 1)
+    
+    XCTAssertEqual(delegate.redirectCallCount, 1)
+  }
 
+}
+
+class BlockRedirectDelegate: NSObject, URLSessionDelegate, URLSessionTaskDelegate {
+  var redirectCallCount: Int = 0
+  
+  func urlSession(_ session: URLSession, task: URLSessionTask, willPerformHTTPRedirection response: HTTPURLResponse, newRequest request: URLRequest, completionHandler: @escaping (URLRequest?) -> Void) {
+    redirectCallCount += 1
+    
+    // disables redirect responses
+    completionHandler(nil)
+  }
 }
