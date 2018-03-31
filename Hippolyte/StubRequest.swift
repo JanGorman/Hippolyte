@@ -107,9 +107,9 @@ public struct StubRequest: Hashable {
     } else {
       bodyHash = 0
     }
-    return method.hashValue ^ urlMatcher.hashValue ^ bodyHash ^ headers.count.hashValue
+    return method.hashValue ^ urlMatcher.hashValue ^ bodyHash ^ headers.count.hashValue &* 16777619
   }
-
+  
   public static func ==(lhs: StubRequest, rhs: StubRequest) -> Bool {
     return lhs.method == rhs.method && lhs.urlMatcher == rhs.urlMatcher && lhs.headers == rhs.headers
       && lhs.bodyMatcher == rhs.bodyMatcher

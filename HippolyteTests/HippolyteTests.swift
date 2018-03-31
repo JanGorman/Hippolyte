@@ -106,7 +106,8 @@ class HippolyteTests: XCTestCase {
 class BlockRedirectDelegate: NSObject, URLSessionDelegate, URLSessionTaskDelegate {
   var redirectCallCount: Int = 0
   
-  func urlSession(_ session: URLSession, task: URLSessionTask, willPerformHTTPRedirection response: HTTPURLResponse, newRequest request: URLRequest, completionHandler: @escaping (URLRequest?) -> Void) {
+  func urlSession(_ session: URLSession, task: URLSessionTask, willPerformHTTPRedirection response: HTTPURLResponse,
+                  newRequest request: URLRequest, completionHandler: @escaping (URLRequest?) -> Void) {
     redirectCallCount += 1
     
     // disables redirect responses

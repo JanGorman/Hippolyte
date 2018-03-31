@@ -10,7 +10,7 @@ An HTTP stubbing library written in Swift.
 
 ## Requirements
 
-- Swift 4
+- Swift 4.1
 - iOS 9.3+
 - Xcode 9+
 

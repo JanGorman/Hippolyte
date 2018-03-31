@@ -85,9 +85,4 @@ public struct StubResponse: HTTPStubResponse, Equatable {
     error = nil
   }
 
-  public static func ==(lhs: StubResponse, rhs: StubResponse) -> Bool {
-    return lhs.statusCode == rhs.statusCode && lhs.headers == rhs.headers && lhs.body == rhs.body
-      && lhs.shouldFail == rhs.shouldFail && lhs.error == rhs.error
-  }
-
 }

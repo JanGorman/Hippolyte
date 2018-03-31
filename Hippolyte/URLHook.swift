@@ -15,8 +15,8 @@ final class URLHook: HTTPClientHook {
   }
 
   func isEqual(to other: HTTPClientHook) -> Bool {
-    if let o = other as? URLHook {
-      return o == self
+    if let theOther = other as? URLHook {
+      return theOther == self
     }
     return false
   }

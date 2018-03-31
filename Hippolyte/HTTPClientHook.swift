@@ -15,8 +15,8 @@ public protocol HTTPClientHook {
 extension HTTPClientHook where Self: Equatable {
 
   func isEqual(to other: HTTPClientHook) -> Bool {
-    if let o = other as? Self {
-      return o == self
+    if let theOther = other as? Self {
+      return theOther == self
     }
     return false
   }

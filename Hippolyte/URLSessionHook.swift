@@ -7,8 +7,8 @@ import Foundation
 final class URLSessionHook: HTTPClientHook {
 
   func isEqual(to other: HTTPClientHook) -> Bool {
-    if let o = other as? URLSessionHook {
-      return o == self
+    if let theOther = other as? URLSessionHook {
+      return theOther == self
     }
     return false
   }

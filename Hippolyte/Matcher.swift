@@ -55,8 +55,8 @@ public class StringMatcher: Matcher {
   }
 
   override func isEqual(to other: Matcher) -> Bool {
-    if let o = other as? StringMatcher {
-      return o.string == string
+    if let theOther = other as? StringMatcher {
+      return theOther.string == string
     }
     return false
   }
@@ -81,8 +81,8 @@ public class RegexMatcher: Matcher {
   }
 
   override func isEqual(to other: Matcher) -> Bool {
-    if let o = other as? RegexMatcher {
-      return o.regex == regex
+    if let theOther = other as? RegexMatcher {
+      return theOther.regex == regex
     }
     return false
   }
@@ -106,8 +106,8 @@ public class DataMatcher: Matcher {
   }
 
   override func isEqual(to other: Matcher) -> Bool {
-    if let o = other as? DataMatcher {
-      return o.data == data
+    if let theOther = other as? DataMatcher {
+      return theOther.data == data
     }
     return false
   }

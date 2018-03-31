@@ -35,7 +35,7 @@ extension URLRequest: HTTPRequest {
       let read = stream.read(buffer, maxLength: bufferSize)
       data.append(buffer, count: read)
     }
-    buffer.deallocate(capacity: bufferSize)
+    buffer.deallocate()
     stream.close()
     return data
   }
