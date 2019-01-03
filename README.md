@@ -16,11 +16,28 @@ An HTTP stubbing library written in Swift.
 
 ## Install
 
+### Cocoapods
+
 Hippolyte is available on [Cocoapods](http://cocoapods.org). Add it to your `Podfile`'s test target:
 
 ```ruby
 pod 'Hippolyte'
 ```
+
+### Carthage
+
+Hippolyte is also available on [Carthage](https://github.com/Carthage/Carthage). Make the following entry in your Cartfile:
+
+```ruby
+github "JanGorman/Hippolyte"
+```
+
+Then run `carthage update`.
+
+Add the Hippolyte.framework to the `Link Binary with Libraries`.
+
+You'll need to go through some additional steps. 
+Please see [here](https://github.com/Carthage/Carthage#quick-start). 
 
 ## Usage
 
