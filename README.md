@@ -93,7 +93,7 @@ func testStub() {
         .stubRequest(withMethod: .GET, url: URL(string: "http://www.apple.com")!)
         .addResponse(response)
         .build()
-    
+
     …
 }
 ```

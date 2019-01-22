@@ -29,9 +29,7 @@ public class Matcher: Hashable {
 }
 
 public protocol Matcheable {
-
   func matcher() -> Matcher
-
 }
 
 public class StringMatcher: Matcher {
@@ -72,7 +70,9 @@ public class RegexMatcher: Matcher {
   }
 
   public override func matches(string: String?) -> Bool {
-    guard let string = string else { return false }
+    guard let string = string else {
+      return false
+    }
     return regex.numberOfMatches(in: string, options: [], range: NSRange(string.startIndex..., in: string)) > 0
   }
 

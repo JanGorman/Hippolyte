@@ -36,7 +36,6 @@ final class HTTPStubURLProtocol: URLProtocol {
     let cookieStorage = HTTPCookieStorage.shared
     cookieStorage.setCookies(HTTPCookie.cookies(withResponseHeaderFields: stubbedResponse.headers, for: url),
                              for: url, mainDocumentURL: url)
-
     if stubbedResponse.shouldFail {
       client?.urlProtocol(self, didFailWithError: stubbedResponse.error!)
     } else {
@@ -46,12 +45,13 @@ final class HTTPStubURLProtocol: URLProtocol {
 
       if 300...399 ~= statusCode && (statusCode != 304 || statusCode != 305) {
         guard let location = stubbedResponse.headers["Location"], let url = URL(string: location),
-              let cookies = cookieStorage.cookies(for: url) else { return }
-
+              let cookies = cookieStorage.cookies(for: url) else {
+                return
+        }
         var redirect = URLRequest(url: url)
         redirect.allHTTPHeaderFields = HTTPCookie.requestHeaderFields(with: cookies)
 		
-		client?.urlProtocol(self, wasRedirectedTo: redirect, redirectResponse: response!)
+        client?.urlProtocol(self, wasRedirectedTo: redirect, redirectResponse: response!)
       }
 		
       let body = stubbedResponse.body

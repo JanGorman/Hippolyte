@@ -74,10 +74,9 @@ open class Hippolyte {
   }
 
   /// Retrieve a stubbed response for an `HTTPRequest`
-  ///
-  /// - throws: A `.unmatchedRequest` for requests that haven't been registered before
-  ///
   /// - Parameter request: The request to retrieve a response for
+  /// - Returns: A StubResponse
+  /// - Throws: An `.unmatchedRequest` for requests that haven't been registered before
   public func response(for request: HTTPRequest) throws -> StubResponse {
     guard let response = stubbedRequests.first(where: { $0.matchesRequest(request) })?.response else {
       throw HippolyteError.unmatchedRequest

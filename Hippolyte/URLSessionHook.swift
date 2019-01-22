@@ -16,7 +16,7 @@ final class URLSessionHook: HTTPClientHook {
   func load() {
     guard let method = class_getInstanceMethod(originalClass(), originalSelector()),
           let stub = class_getInstanceMethod(URLSessionHook.self, #selector(protocolClasses)) else {
-      fatalError("Couldn't load URLSessionHook")
+      fatalError("Could not load URLSessionHook")
     }
     method_exchangeImplementations(method, stub)
   }

@@ -5,11 +5,9 @@
 import Foundation
 
 public protocol HTTPClientHook {
-
   func load()
   func unload()
   func isEqual(to other: HTTPClientHook) -> Bool
-
 }
 
 extension HTTPClientHook where Self: Equatable {

@@ -5,18 +5,18 @@
 import Foundation
 
 public protocol HTTPRequest {
-
   var url: URL? { get }
   var method: HTTPMethod? { get }
   var headers: [String: String]? { get }
   var body: Data? { get }
-
 }
 
 extension URLRequest: HTTPRequest {
 
   public var method: HTTPMethod? {
-    guard let method = httpMethod else { return nil }
+    guard let method = httpMethod else {
+      return nil
+    }
     return HTTPMethod(rawValue: method)
   }
 
@@ -25,7 +25,9 @@ extension URLRequest: HTTPRequest {
   }
 
   public var body: Data? {
-    guard let stream = httpBodyStream else { return httpBody }
+    guard let stream = httpBodyStream else {
+      return httpBody
+    }
 
     var data = Data()
     stream.open()
