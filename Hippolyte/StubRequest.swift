@@ -5,7 +5,7 @@
 import Foundation
 
 public enum HTTPMethod: String {
-  case GET, HEAD, POST, PUT, DELETE, CONNECT, OPTIONS, TRACE
+  case GET, HEAD, POST, PUT, DELETE, CONNECT, OPTIONS, TRACE, PATCH
 }
 
 public struct StubRequest: Hashable {
