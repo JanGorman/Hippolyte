@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1010"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "77A290CD1F62EADF001E70FA"
+               BlueprintIdentifier = "E64B0ECA223ACB6300FB35E4"
                BuildableName = "Hippolyte.framework"
-               BlueprintName = "Hippolyte"
+               BlueprintName = "Hippolyte_macOS"
                ReferencedContainer = "container:Hippolyte.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,16 +26,15 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      codeCoverageEnabled = "YES"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "77A290D61F62EADF001E70FA"
+               BlueprintIdentifier = "E64B0EE2223ACE8400FB35E4"
                BuildableName = "HippolyteTests.xctest"
-               BlueprintName = "HippolyteTests"
+               BlueprintName = "HippolyteTests_macOS"
                ReferencedContainer = "container:Hippolyte.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -43,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "77A290CD1F62EADF001E70FA"
+            BlueprintIdentifier = "E64B0ECA223ACB6300FB35E4"
             BuildableName = "Hippolyte.framework"
-            BlueprintName = "Hippolyte"
+            BlueprintName = "Hippolyte_macOS"
             ReferencedContainer = "container:Hippolyte.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -65,9 +64,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "77A290CD1F62EADF001E70FA"
+            BlueprintIdentifier = "E64B0ECA223ACB6300FB35E4"
             BuildableName = "Hippolyte.framework"
-            BlueprintName = "Hippolyte"
+            BlueprintName = "Hippolyte_macOS"
             ReferencedContainer = "container:Hippolyte.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -83,9 +82,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "77A290CD1F62EADF001E70FA"
+            BlueprintIdentifier = "E64B0ECA223ACB6300FB35E4"
             BuildableName = "Hippolyte.framework"
-            BlueprintName = "Hippolyte"
+            BlueprintName = "Hippolyte_macOS"
             ReferencedContainer = "container:Hippolyte.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
