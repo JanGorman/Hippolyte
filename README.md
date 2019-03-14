@@ -12,6 +12,7 @@ An HTTP stubbing library written in Swift.
 
 - Swift 4.2
 - iOS 9.3+
+- macOS 10.13+
 - Xcode 10+
 
 ## Install
