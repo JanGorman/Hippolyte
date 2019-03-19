@@ -1,9 +1,22 @@
-language: objective-c
-osx_image: xcode10.1
-before_script:
-  - brew update && brew upgrade swiftlint
-script:
-  - bundle exec fastlane scan --code_coverage true --scheme Hippolyte_iOS
-  - bundle exec danger
-after_success:
-  - bash <(curl -s https://codecov.io/bash) -J 'Hippolyte'
+matrix:
+  include: 
+  - os: osx
+    language: objective-c
+    osx_image: xcode10.1
+    before_script:
+      - brew update && brew upgrade swiftlint
+    script:
+      - bundle exec fastlane scan --code_coverage true --scheme Hippolyte_iOS
+      - bundle exec danger
+    after_success:
+      - bash <(curl -s https://codecov.io/bash) -J 'Hippolyte'
+  - os: osx
+    language: objective-c
+    osx_image: xcode10.1
+    before_script:
+      - brew update && brew upgrade swiftlint
+    script:
+      - bundle exec fastlane scan --code_coverage true --scheme Hippolyte_macOS
+      - bundle exec danger
+    after_success:
+      - bash <(curl -s https://codecov.io/bash) -J 'Hippolyte'
