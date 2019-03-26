@@ -48,7 +48,7 @@ open class Hippolyte {
   ///
   /// - Parameter stubbedRequest: A configured `StubRequest`
   public func add(stubbedRequest request: StubRequest) {
-    if let idx = stubbedRequests.index(of: request) {
+    if let idx = stubbedRequests.firstIndex(of: request) {
       stubbedRequests[idx] = request
       return
     }

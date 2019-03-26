@@ -18,8 +18,7 @@ public class Matcher: Hashable {
     return false
   }
 
-  public var hashValue: Int {
-    return 0
+  public func hash(into hasher: inout Hasher) {
   }
 
   public static func ==(lhs: Matcher, rhs: Matcher) -> Bool {
@@ -48,8 +47,8 @@ public class StringMatcher: Matcher {
     return self.string.data(using: .utf8) == data
   }
 
-  public override var hashValue: Int {
-    return string.hashValue
+  public override func hash(into hasher: inout Hasher) {
+    hasher.combine(string)
   }
 
   override func isEqual(to other: Matcher) -> Bool {
@@ -76,8 +75,8 @@ public class RegexMatcher: Matcher {
     return regex.numberOfMatches(in: string, options: [], range: NSRange(string.startIndex..., in: string)) > 0
   }
 
-  public override var hashValue: Int {
-    return regex.hashValue
+  public override func hash(into hasher: inout Hasher) {
+    hasher.combine(regex)
   }
 
   override func isEqual(to other: Matcher) -> Bool {
@@ -101,8 +100,8 @@ public class DataMatcher: Matcher {
     return self.data == data
   }
 
-  public override var hashValue: Int {
-    return data.hashValue
+  public override func hash(into hasher: inout Hasher) {
+    hasher.combine(data)
   }
 
   override func isEqual(to other: Matcher) -> Bool {
