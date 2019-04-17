@@ -30,7 +30,7 @@ open class Hippolyte {
   }
 
   private func loadHooks() {
-    hooks.forEach { $0.unload() }
+    hooks.forEach { $0.load() }
   }
 
   /// The stop method to tell Hippolyte to stop stubbing.
@@ -41,7 +41,7 @@ open class Hippolyte {
   }
 
   private func unloadHooks() {
-    hooks.forEach { $0.load() }
+    hooks.forEach { $0.unload() }
   }
 
   /// Add a stubbed request
