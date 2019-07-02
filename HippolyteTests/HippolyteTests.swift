@@ -57,7 +57,7 @@ class HippolyteTests: XCTestCase {
     let url = URL(string: "http://www.apple.com")!
     var stub = StubRequest(method: .GET, url: url)
     var response = StubResponse()
-    let body = "Hippolyte".data(using: .utf8)!
+    let body = Data("Hippolyte".utf8)
     response.body = body
     stub.response = response
     Hippolyte.shared.add(stubbedRequest: stub)
@@ -81,7 +81,7 @@ class HippolyteTests: XCTestCase {
     var response = StubResponse()
     response = StubResponse(statusCode: 301)
     response.headers = ["Location": "https://example.com/not/here"]
-    let body = "Hippolyte Redirect".data(using: .utf8)!
+    let body = Data("Hippolyte Redirect".utf8)
     response.body = body
     stub.response = response
     Hippolyte.shared.add(stubbedRequest: stub)

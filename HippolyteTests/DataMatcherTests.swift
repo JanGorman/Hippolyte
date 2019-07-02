@@ -8,21 +8,21 @@ import Hippolyte
 class DataMatcherTests: XCTestCase {
 
   func testMatchingDataMatches() {
-    let data = "data".data(using: .utf8)!
+    let data = Data("data".utf8)
     let matcher = DataMatcher(data: data)
 
     XCTAssertTrue(matcher.matches(data: data))
   }
 
   func testMismatchingDataDoesNotMatch() {
-    let data = "data".data(using: .utf8)!
+    let data = Data("data".utf8)
     let matcher = DataMatcher(data: data)
 
-    XCTAssertFalse(matcher.matches(data: "other".data(using: .utf8)!))
+    XCTAssertFalse(matcher.matches(data: Data("other".utf8)))
   }
 
   func testInstancesWithSameDataMatch() {
-    let data = "data".data(using: .utf8)!
+    let data = Data("data".utf8)
     let matcher1 = DataMatcher(data: data)
     let matcher2 = DataMatcher(data: data)
 
@@ -30,8 +30,8 @@ class DataMatcherTests: XCTestCase {
   }
 
   func testInstancesWithDifferentDataDoNotMatch() {
-    let matcher1 = DataMatcher(data: "data".data(using: .utf8)!)
-    let matcher2 = DataMatcher(data: "other".data(using: .utf8)!)
+    let matcher1 = DataMatcher(data: Data("data".utf8))
+    let matcher2 = DataMatcher(data: Data("other".utf8))
 
     XCTAssertNotEqual(matcher1, matcher2)
   }

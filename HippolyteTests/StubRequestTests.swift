@@ -63,10 +63,10 @@ class StubRequestTests: XCTestCase {
 
   func testBodyMatches() {
     var stub = StubRequest(method: .GET, url: URL(string: "http://www.apple.com")!)
-    stub.bodyMatcher = DataMatcher(data: "data".data(using: .utf8)!)
+    stub.bodyMatcher = DataMatcher(data: Data("data".utf8))
 
     var request = TestRequest(method: .GET, url: URL(string: "http://www.apple.com")!)
-    request.body = "data".data(using: .utf8)!
+    request.body = Data("data".utf8)
 
     XCTAssertTrue(stub.matchesRequest(request))
   }
@@ -75,7 +75,7 @@ class StubRequestTests: XCTestCase {
     let stub = StubRequest(method: .GET, url: URL(string: "http://www.apple.com")!)
 
     var request = TestRequest(method: .GET, url: URL(string: "http://www.apple.com")!)
-    request.body = "Foooo".data(using: .utf8)!
+    request.body = Data("Foooo".utf8)
 
     XCTAssertTrue(stub.matchesRequest(request))
   }

@@ -16,12 +16,13 @@ class StubResponseBuilderTests: XCTestCase {
     XCTAssertEqual(stub1.statusCode, 400)
 
     let stub2 = builder.stubResponse(withError: NSError(domain: "Error", code: -1, userInfo: nil))
-      .addBody("".data(using: .utf8)!)
+      .addBody(Data("foo".utf8))
       .build()
 
     XCTAssertNotNil(stub2)
     XCTAssertNotNil(stub2.error)
     XCTAssertNotNil(stub2.body)
+    XCTAssertEqual("foo", String(bytes: stub2.body!, encoding: .utf8))
   }
     
 }
