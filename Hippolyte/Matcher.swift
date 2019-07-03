@@ -112,3 +112,38 @@ public class DataMatcher: Matcher {
   }
 
 }
+
+public class JsonMatcher<T: Decodable & Hashable>: Matcher {
+
+  let decoder: JSONDecoder
+  let object: T
+
+  public init(object: T) {
+    self.decoder = JSONDecoder()
+    self.object = object
+  }
+
+  public override func matches(data: Data?) -> Bool {
+    guard let data = data else {
+      return false
+    }
+
+    guard let decodedObject = try? self.decoder.decode(T.self, from: data) else {
+      return false
+    }
+
+    return self.object == decodedObject
+  }
+
+  public override func hash(into hasher: inout Hasher) {
+    hasher.combine(self.object)
+  }
+
+  override func isEqual(to other: Matcher) -> Bool {
+    if let theOther = other as? JsonMatcher<T> {
+      return theOther.object == self.object
+    }
+    return false
+  }
+
+}
