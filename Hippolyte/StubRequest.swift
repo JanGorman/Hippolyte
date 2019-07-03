@@ -17,23 +17,27 @@ public struct StubRequest: Hashable {
     public init() {
     }
 
-    @discardableResult public func stubRequest(withMethod method: HTTPMethod, url: URL) -> Builder {
+    @discardableResult
+    public func stubRequest(withMethod method: HTTPMethod, url: URL) -> Builder {
       request = StubRequest(method: method, url: url)
       return self
     }
 
-    @discardableResult public func stubRequest(withMethod method: HTTPMethod, urlMatcher: Matcher) -> Builder {
+    @discardableResult
+    public func stubRequest(withMethod method: HTTPMethod, urlMatcher: Matcher) -> Builder {
       request = StubRequest(method: method, urlMatcher: urlMatcher)
       return self
     }
 
-    @discardableResult public func addHeader(withKey key: String, value: String) -> Builder {
+    @discardableResult
+    public func addHeader(withKey key: String, value: String) -> Builder {
       assert(request != nil)
       request.setHeader(key: key, value: value)
       return self
     }
 
-    @discardableResult public func addResponse(_ response: StubResponse) -> Builder {
+    @discardableResult
+    public func addResponse(_ response: StubResponse) -> Builder {
       assert(request != nil)
       request.response = response
       return self
