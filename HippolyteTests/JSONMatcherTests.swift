@@ -1,8 +1,4 @@
 //
-//  JSONMatcherTests.swift
-//  HippolyteTests_iOS
-//
-//  Created by Clemens on 04.07.19.
 //  Copyright © 2019 Clemens Schulz. All rights reserved.
 //
 
@@ -12,7 +8,6 @@ import Hippolyte
 class JSONMatcherTests: XCTestCase {
 
   private struct TestObject: Codable, Hashable {
-
     let id: Int
     let name: String?
     let foo: Bool

@@ -31,7 +31,7 @@ public protocol Matcheable {
   func matcher() -> Matcher
 }
 
-public class StringMatcher: Matcher {
+public final class StringMatcher: Matcher {
 
   let string: String
 
@@ -60,7 +60,7 @@ public class StringMatcher: Matcher {
 
 }
 
-public class RegexMatcher: Matcher {
+public final class RegexMatcher: Matcher {
 
   let regex: NSRegularExpression
 
@@ -88,7 +88,7 @@ public class RegexMatcher: Matcher {
 
 }
 
-public class DataMatcher: Matcher {
+public final class DataMatcher: Matcher {
 
   let data: Data
 
@@ -113,7 +113,7 @@ public class DataMatcher: Matcher {
 
 }
 
-public class JsonMatcher<T: Decodable & Hashable>: Matcher {
+public final class JsonMatcher<T: Decodable & Hashable>: Matcher {
 
   let decoder: JSONDecoder
   let object: T
@@ -127,7 +127,6 @@ public class JsonMatcher<T: Decodable & Hashable>: Matcher {
     guard let data = data, let decodedObject = try? self.decoder.decode(T.self, from: data) else {
       return false
     }
-
     return object == decodedObject
   }
 
