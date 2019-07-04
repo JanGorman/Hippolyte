@@ -124,24 +124,20 @@ public class JsonMatcher<T: Decodable & Hashable>: Matcher {
   }
 
   public override func matches(data: Data?) -> Bool {
-    guard let data = data else {
+    guard let data = data, let decodedObject = try? self.decoder.decode(T.self, from: data) else {
       return false
     }
 
-    guard let decodedObject = try? self.decoder.decode(T.self, from: data) else {
-      return false
-    }
-
-    return self.object == decodedObject
+    return object == decodedObject
   }
 
   public override func hash(into hasher: inout Hasher) {
-    hasher.combine(self.object)
+    hasher.combine(object)
   }
 
   override func isEqual(to other: Matcher) -> Bool {
     if let theOther = other as? JsonMatcher<T> {
-      return theOther.object == self.object
+      return theOther.object == object
     }
     return false
   }

@@ -13,29 +13,29 @@ class JSONMatcherTests: XCTestCase {
 
   private struct TestObject: Codable, Hashable {
 
-    var id: Int
-    var name: String?
-    var foo: Bool
+    let id: Int
+    let name: String?
+    let foo: Bool
   }
 
-  func testMatchingObjectMatches() {
+  func testMatchingObjectMatches() throws {
     let object = TestObject(id: 1, name: "name", foo: false)
     let matcher = JsonMatcher<TestObject>(object: object)
 
     let encoder = JSONEncoder()
-    let data = try! encoder.encode(object)
+    let data = try encoder.encode(object)
 
     XCTAssertTrue(matcher.matches(data: data))
   }
 
-  func testMismatchingObjectDoesNotMatch() {
+  func testMismatchingObjectDoesNotMatch() throws {
     let object = TestObject(id: 1, name: "name", foo: false)
     let matcher = JsonMatcher<TestObject>(object: object)
 
     let otherObject = TestObject(id: 1, name: "other", foo: true)
 
     let encoder = JSONEncoder()
-    let data = try! encoder.encode(otherObject)
+    let data = try encoder.encode(otherObject)
 
     XCTAssertFalse(matcher.matches(data: data))
   }
