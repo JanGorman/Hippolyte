@@ -5,7 +5,7 @@
 import XCTest
 import Hippolyte
 
-class JSONMatcherTests: XCTestCase {
+final class JSONMatcherTests: XCTestCase {
 
   private struct TestObject: Codable, Hashable {
     let id: Int
@@ -15,7 +15,7 @@ class JSONMatcherTests: XCTestCase {
 
   func testMatchingObjectMatches() throws {
     let object = TestObject(id: 1, name: "name", foo: false)
-    let matcher = JsonMatcher<TestObject>(object: object)
+    let matcher = JSONMatcher<TestObject>(object: object)
 
     let encoder = JSONEncoder()
     let data = try encoder.encode(object)
@@ -25,7 +25,7 @@ class JSONMatcherTests: XCTestCase {
 
   func testMismatchingObjectDoesNotMatch() throws {
     let object = TestObject(id: 1, name: "name", foo: false)
-    let matcher = JsonMatcher<TestObject>(object: object)
+    let matcher = JSONMatcher<TestObject>(object: object)
 
     let otherObject = TestObject(id: 1, name: "other", foo: true)
 
@@ -37,18 +37,18 @@ class JSONMatcherTests: XCTestCase {
 
   func testInstancesWithSameObjectMatch() {
     let object = TestObject(id: 1, name: "name", foo: false)
-    let matcher1 = JsonMatcher<TestObject>(object: object)
-    let matcher2 = JsonMatcher<TestObject>(object: object)
+    let matcher1 = JSONMatcher<TestObject>(object: object)
+    let matcher2 = JSONMatcher<TestObject>(object: object)
 
     XCTAssertEqual(matcher1, matcher2)
   }
 
   func testInstancesWithDifferentObjectDoNotMatch() {
     let object1 = TestObject(id: 1, name: "name", foo: false)
-    let matcher1 = JsonMatcher<TestObject>(object: object1)
+    let matcher1 = JSONMatcher<TestObject>(object: object1)
 
     let object2 = TestObject(id: 2, name: "other", foo: true)
-    let matcher2 = JsonMatcher<TestObject>(object: object2)
+    let matcher2 = JSONMatcher<TestObject>(object: object2)
 
     XCTAssertNotEqual(matcher1, matcher2)
   }

@@ -4,9 +4,13 @@
 
 import Foundation
 
+protocol Matcheable {
+  func matcher() -> Matcher
+}
+
 extension URL: Matcheable {
 
-  public func matcher() -> Matcher {
+  func matcher() -> Matcher {
     return StringMatcher(string: absoluteString)
   }
 

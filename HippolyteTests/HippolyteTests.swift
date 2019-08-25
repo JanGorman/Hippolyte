@@ -5,7 +5,7 @@
 import XCTest
 import Hippolyte
 
-class HippolyteTests: XCTestCase {
+final class HippolyteTests: XCTestCase {
 
   override func tearDown() {
     super.tearDown()

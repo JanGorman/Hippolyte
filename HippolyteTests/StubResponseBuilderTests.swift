@@ -5,7 +5,7 @@
 import XCTest
 import Hippolyte
 
-class StubResponseBuilderTests: XCTestCase {
+final class StubResponseBuilderTests: XCTestCase {
     
   func testBuilderProducesStubs() {
     let builder = StubResponse.Builder()

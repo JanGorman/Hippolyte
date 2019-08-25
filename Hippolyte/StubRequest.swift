@@ -43,6 +43,13 @@ public struct StubRequest: Hashable {
       return self
     }
 
+    @discardableResult
+    public func addMatcher(_ matcher: Matcher) -> Builder {
+      assert(request != nil)
+      request.bodyMatcher = matcher
+      return self
+    }
+
     public func build() -> StubRequest {
       return request
     }
@@ -86,13 +93,15 @@ public struct StubRequest: Hashable {
     return urlMatcher.matches(string: url?.absoluteString)
   }
 
-  private func matchesHeaders(_ headers: [String: String]?) -> Bool {
-    guard let otherHeaders = headers else { return self.headers.isEmpty }
-    for key in self.headers.keys {
-      guard let value = otherHeaders[key] else {
+  private func matchesHeaders(_ headersToMatch: [String: String]?) -> Bool {
+    guard let headersToMatch = headersToMatch else {
+      return headers.isEmpty
+    }
+    for key in headers.keys {
+      guard let value = headersToMatch[key] else {
         return false
       }
-      if value != self.headers[key] {
+      if value != headers[key] {
         return false
       }
     }

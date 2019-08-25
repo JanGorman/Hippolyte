@@ -5,7 +5,7 @@
 import XCTest
 import Hippolyte
 
-class DataMatcherTests: XCTestCase {
+final class DataMatcherTests: XCTestCase {
 
   func testMatchingDataMatches() {
     let data = Data("data".utf8)

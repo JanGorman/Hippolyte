@@ -5,7 +5,7 @@
 import XCTest
 import Hippolyte
 
-class StubRequestTests: XCTestCase {
+final class StubRequestTests: XCTestCase {
 
   func testStubRequestsMatch() {
     let stub = StubRequest(method: .GET, url: URL(string: "http://www.apple.com")!)
@@ -61,6 +61,16 @@ class StubRequestTests: XCTestCase {
     XCTAssertFalse(stub.matchesRequest(request))
   }
 
+  func testMismatchedHeadersDoNotMatch() {
+    var stub = StubRequest(method: .GET, url: URL(string: "http://www.apple.com")!)
+    stub.setHeader(key: "X-Foo", value: "Bar")
+
+    var request = TestRequest(method: .GET, url: URL(string: "http://www.apple.com")!)
+    request.setHeader(key: "X-Foo", value: "Foo")
+
+    XCTAssertFalse(stub.matchesRequest(request))
+  }
+
   func testBodyMatches() {
     var stub = StubRequest(method: .GET, url: URL(string: "http://www.apple.com")!)
     stub.bodyMatcher = DataMatcher(data: Data("data".utf8))
@@ -86,9 +96,12 @@ class StubRequestTests: XCTestCase {
     let stub1 = builder.stubRequest(withMethod: .GET, url: URL(string: "http://www.apple.com")!)
       .addHeader(withKey: "X-Foo", value: "Bar")
       .addResponse(StubResponse())
+      .addMatcher(StringMatcher(string: "foo"))
       .build()
 
     XCTAssertNotNil(stub1)
+    XCTAssertFalse(stub1.headers.isEmpty)
+    XCTAssertNotNil(stub1.bodyMatcher)
 
     let matcher = RegexMatcher(regex: try NSRegularExpression(pattern: "^http://www.apple.com", options: []))
 
@@ -97,6 +110,16 @@ class StubRequestTests: XCTestCase {
       .build()
 
     XCTAssertNotNil(stub2)
+  }
+
+  func testIsHashable() {
+    let builder = StubRequest.Builder()
+    let stub1 = builder.stubRequest(withMethod: .GET, url: URL(string: "http://www.apple.com")!).build()
+    let stub2 = builder.stubRequest(withMethod: .POST, url: URL(string: "http://www.apple.com")!).build()
+
+    let set: Set<StubRequest> = [stub1, stub2]
+
+    XCTAssertEqual(set.count, 2)
   }
 
 }

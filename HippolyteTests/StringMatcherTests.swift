@@ -5,7 +5,7 @@
 import XCTest
 import Hippolyte
 
-class StringMatcherTests: XCTestCase {
+final class StringMatcherTests: XCTestCase {
   
   func testMatchingStringsMatch() {
     let matcher = StringMatcher(string: "string")

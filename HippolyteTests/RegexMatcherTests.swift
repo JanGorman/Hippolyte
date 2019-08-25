@@ -5,7 +5,7 @@
 import XCTest
 import Hippolyte
 
-class RegexMatcherTests: XCTestCase {
+final class RegexMatcherTests: XCTestCase {
 
   func testRegexMatches() throws {
     let regex = try NSRegularExpression(pattern: "Fo+", options: [])
