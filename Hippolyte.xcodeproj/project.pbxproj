@@ -50,6 +50,10 @@
 		F2F8EA8F2312DE9000D1FBC4 /* RegexMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F8EA8E2312DE9000D1FBC4 /* RegexMatcher.swift */; };
 		F2F8EA912312DEA900D1FBC4 /* DataMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F8EA902312DEA900D1FBC4 /* DataMatcher.swift */; };
 		F2F8EA932312DEBC00D1FBC4 /* JSONMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F8EA922312DEBC00D1FBC4 /* JSONMatcher.swift */; };
+		F2F8EA942312E84400D1FBC4 /* StringMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F8EA8C2312DE7400D1FBC4 /* StringMatcher.swift */; };
+		F2F8EA952312E84400D1FBC4 /* RegexMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F8EA8E2312DE9000D1FBC4 /* RegexMatcher.swift */; };
+		F2F8EA962312E84400D1FBC4 /* JSONMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F8EA922312DEBC00D1FBC4 /* JSONMatcher.swift */; };
+		F2F8EA972312E84400D1FBC4 /* DataMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F8EA902312DEA900D1FBC4 /* DataMatcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -456,6 +460,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2F8EA952312E84400D1FBC4 /* RegexMatcher.swift in Sources */,
+				F2F8EA942312E84400D1FBC4 /* StringMatcher.swift in Sources */,
 				E64B0ED8223ACD0D00FB35E4 /* URLSessionHook.swift in Sources */,
 				E64B0ED6223ACD0D00FB35E4 /* StubResponse.swift in Sources */,
 				E64B0ED4223ACD0D00FB35E4 /* Hippolyte.swift in Sources */,
@@ -463,8 +469,10 @@
 				E64B0EDB223ACD0D00FB35E4 /* URLHook.swift in Sources */,
 				E64B0EDA223ACD0D00FB35E4 /* HTTPRequest.swift in Sources */,
 				E64B0EDD223ACD0D00FB35E4 /* URL+HippolyteAdditions.swift in Sources */,
+				F2F8EA962312E84400D1FBC4 /* JSONMatcher.swift in Sources */,
 				E64B0ED7223ACD0D00FB35E4 /* HTTPClientHook.swift in Sources */,
 				E64B0EDC223ACD0D00FB35E4 /* Matcher.swift in Sources */,
+				F2F8EA972312E84400D1FBC4 /* DataMatcher.swift in Sources */,
 				E64B0ED9223ACD0D00FB35E4 /* HTTPStubURLProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
