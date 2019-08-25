@@ -21,6 +21,6 @@ Pod::Spec.new do |s|
 
   s.source             = { :git => "https://github.com/JanGorman/Hippolyte.git", :tag => s.version}
 
-  s.source_files       = "Classes", "Hippolyte/*.swift"
+  s.source_files       = "Classes", "Hippolyte/**/*.swift"
 
 end
