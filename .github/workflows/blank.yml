@@ -1,0 +1,21 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: macOS-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-ruby@v1.0.0
+      with:
+        ruby-version: '2.x'
+    - name: Run fastlane
+      run: |
+        gem install bundler
+        bundle
+        bundle exec fastlane scan --code_coverage true --scheme Hippolyte_iOS
+        bundle exec danger
+
