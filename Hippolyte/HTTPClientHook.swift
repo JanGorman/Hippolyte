@@ -22,5 +22,5 @@ extension HTTPClientHook where Self: Equatable {
 }
 
 func ==(lhs: HTTPClientHook, rhs: HTTPClientHook) -> Bool {
-  return lhs.isEqual(to: rhs)
+  lhs.isEqual(to: rhs)
 }

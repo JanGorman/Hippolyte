@@ -11,7 +11,7 @@ protocol Matcheable {
 extension URL: Matcheable {
 
   func matcher() -> Matcher {
-    return StringMatcher(string: absoluteString)
+    StringMatcher(string: absoluteString)
   }
 
 }

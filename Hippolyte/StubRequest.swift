@@ -51,7 +51,7 @@ public struct StubRequest: Hashable {
     }
 
     public func build() -> StubRequest {
-      return request
+      request
     }
 
   }
@@ -85,12 +85,11 @@ public struct StubRequest: Hashable {
   }
 
   public func matchesRequest(_ request: HTTPRequest) -> Bool {
-    return request.method == method && matchesUrl(request.url) && matchesHeaders(request.headers)
-      && matchesBody(request.body)
+    request.method == method && matchesUrl(request.url) && matchesHeaders(request.headers) && matchesBody(request.body)
   }
 
   private func matchesUrl(_ url: URL?) -> Bool {
-    return urlMatcher.matches(string: url?.absoluteString)
+    urlMatcher.matches(string: url?.absoluteString)
   }
 
   private func matchesHeaders(_ headersToMatch: [String: String]?) -> Bool {
@@ -127,8 +126,7 @@ public struct StubRequest: Hashable {
   }
 
   public static func ==(lhs: StubRequest, rhs: StubRequest) -> Bool {
-    return lhs.method == rhs.method && lhs.urlMatcher == rhs.urlMatcher && lhs.headers == rhs.headers
-      && lhs.bodyMatcher == rhs.bodyMatcher
+    lhs.method == rhs.method && lhs.urlMatcher == rhs.urlMatcher && lhs.headers == rhs.headers && lhs.bodyMatcher == rhs.bodyMatcher
   }
 
 }

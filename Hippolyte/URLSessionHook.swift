@@ -22,11 +22,11 @@ final class URLSessionHook: HTTPClientHook {
   }
 
   private func originalClass() -> AnyClass? {
-    return NSClassFromString("__NSCFURLSessionConfiguration") ?? NSClassFromString("NSURLSessionConfiguration")
+    NSClassFromString("__NSCFURLSessionConfiguration") ?? NSClassFromString("NSURLSessionConfiguration")
   }
 
   private func originalSelector() -> Selector {
-    return #selector(getter: URLSessionConfiguration.protocolClasses)
+    #selector(getter: URLSessionConfiguration.protocolClasses)
   }
 
   @objc

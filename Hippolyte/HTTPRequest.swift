@@ -21,7 +21,7 @@ extension URLRequest: HTTPRequest {
   }
 
   public var headers: [String : String]? {
-    return allHTTPHeaderFields
+    allHTTPHeaderFields
   }
 
   public var body: Data? {

@@ -52,7 +52,7 @@ public struct StubResponse: HTTPStubResponse, Equatable {
     }
 
     public func build() -> StubResponse {
-      return response
+      response
     }
 
   }

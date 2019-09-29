@@ -2,7 +2,7 @@ matrix:
   include: 
   - os: osx
     language: objective-c
-    osx_image: xcode10.2
+    osx_image: xcode11
     script:
       - bundle exec fastlane scan --code_coverage true --scheme Hippolyte_iOS
       - bundle exec danger
@@ -10,7 +10,7 @@ matrix:
       - bash <(curl -s https://codecov.io/bash) -J 'Hippolyte'
   - os: osx
     language: objective-c
-    osx_image: xcode10.2
+    osx_image: xcode11
     script:
       - bundle exec fastlane scan --code_coverage true --scheme Hippolyte_macOS
       - bundle exec danger

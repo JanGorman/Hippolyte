@@ -70,7 +70,7 @@ open class Hippolyte {
   }
 
   private func isHookRegistered(_ hook: HTTPClientHook) -> Bool {
-    return hooks.first(where: { $0 == hook }) != nil
+    hooks.first(where: { $0 == hook }) != nil
   }
 
   /// Retrieve a stubbed response for an `HTTPRequest`

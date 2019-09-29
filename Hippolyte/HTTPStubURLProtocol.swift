@@ -10,7 +10,7 @@ final class HTTPStubURLProtocol: URLProtocol {
     let request: URLRequest
     
     var description: String {
-      return "No matching stub found for \(request)"
+      "No matching stub found for \(request)"
     }
   }
 
@@ -20,11 +20,11 @@ final class HTTPStubURLProtocol: URLProtocol {
   }
 
   override class func canonicalRequest(for request: URLRequest) -> URLRequest {
-    return request
+    request
   }
 
   override class func requestIsCacheEquivalent(_ a: URLRequest, to b: URLRequest) -> Bool {
-    return false
+    false
   }
 
   override func startLoading() {
