@@ -114,7 +114,7 @@ final class HippolyteTests: XCTestCase {
     let expectation = self.expectation(description: "Dies not stub network redirect call")
     let delegate = BlockRedirectDelegate()
     let session = URLSession(configuration: .default, delegate: delegate, delegateQueue: nil)
-    let task = session.dataTask(with: url) { data, _, _ in
+    let task = session.dataTask(with: url) { _, _, _ in
       expectation.fulfill()
     }
     task.resume()
