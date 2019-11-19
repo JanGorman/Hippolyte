@@ -43,7 +43,7 @@ final class HTTPStubURLProtocol: URLProtocol {
       let response = HTTPURLResponse(url: url, statusCode: statusCode, httpVersion: nil,
                                      headerFields: stubbedResponse.headers)
 
-      if 300...399 ~= statusCode && (statusCode != 304 || statusCode != 305) {
+      if 300...399 ~= statusCode && (statusCode != 304 && statusCode != 305) {
         guard let location = stubbedResponse.headers["Location"], let url = URL(string: location),
               let cookies = cookieStorage.cookies(for: url) else {
                 return

@@ -101,6 +101,27 @@ final class HippolyteTests: XCTestCase {
     XCTAssertEqual(delegate.redirectCallCount, 1)
   }
 
+  func testItDoesNotStubsRedirectNoContent() {
+    let url = URL(string: "http://www.apple.com")!
+    var stub = StubRequest(method: .GET, url: url)
+    var response = StubResponse()
+    response = StubResponse(statusCode: 304)
+    stub.response = response
+    Hippolyte.shared.add(stubbedRequest: stub)
+
+    Hippolyte.shared.start()
+
+    let expectation = self.expectation(description: "Dies not stub network redirect call")
+    let delegate = BlockRedirectDelegate()
+    let session = URLSession(configuration: .default, delegate: delegate, delegateQueue: nil)
+    let task = session.dataTask(with: url) { _, _, _ in
+      expectation.fulfill()
+    }
+    task.resume()
+    wait(for: [expectation], timeout: 1)
+
+    XCTAssertEqual(delegate.redirectCallCount, 0)
+  }
 }
 
 final class BlockRedirectDelegate: NSObject, URLSessionDelegate, URLSessionTaskDelegate {
