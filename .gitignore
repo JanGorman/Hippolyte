@@ -26,3 +26,4 @@ xcuserdata/
 
 
 .swiftpm/
+.build/
