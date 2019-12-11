@@ -31,7 +31,7 @@ final class URLSessionHook: HTTPClientHook {
 
   @objc
   private func protocolClasses() -> [AnyClass] {
-    return [HTTPStubURLProtocol.self]
+    [HTTPStubURLProtocol.self]
   }
 
   func unload() {

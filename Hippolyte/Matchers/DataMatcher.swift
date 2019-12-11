@@ -13,7 +13,7 @@ public final class DataMatcher: Matcher {
   }
 
   public override func matches(data: Data?) -> Bool {
-    return self.data == data
+    self.data == data
   }
 
   public override func hash(into hasher: inout Hasher) {

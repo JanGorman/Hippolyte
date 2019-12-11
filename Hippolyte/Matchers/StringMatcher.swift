@@ -13,11 +13,11 @@ public final class StringMatcher: Matcher {
   }
 
   public override func matches(string: String?) -> Bool {
-    return self.string == string
+    self.string == string
   }
 
   public override func matches(data: Data?) -> Bool {
-    return self.string.data(using: .utf8) == data
+    self.string.data(using: .utf8) == data
   }
 
   public override func hash(into hasher: inout Hasher) {
