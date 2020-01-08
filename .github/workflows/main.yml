@@ -11,7 +11,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Run tests
       run: |
-        - swift package generate-xcodeproj
-        - xcodebuild test -scheme Hippolyte-Package -destination platform="macOS" -enableCodeCoverage YES
-        - bash <(curl -s https://codecov.io/bash) -J 'Hippolyte'
+        swift package generate-xcodeproj
+        xcodebuild test -scheme Hippolyte-Package -destination platform="macOS" -enableCodeCoverage YES
+        bash <(curl -s https://codecov.io/bash) -J 'Hippolyte'
 
