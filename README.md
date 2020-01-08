@@ -1,6 +1,6 @@
 # Hippolyte
 
-[![Build Status](https://travis-ci.org/JanGorman/Hippolyte.svg?branch=master)](https://travis-ci.org/JanGorman/Hippolyte)
+![Run tests](https://github.com/JanGorman/Hippolyte/workflows/CI/badge.svg)
 [![codecov](https://codecov.io/gh/JanGorman/Hippolyte/branch/master/graph/badge.svg)](https://codecov.io/gh/JanGorman/Hippolyte)
 [![Version](https://img.shields.io/cocoapods/v/Hippolyte.svg?style=flat)](http://cocoapods.org/pods/Hippolyte)
 [![License](https://img.shields.io/cocoapods/l/Hippolyte.svg?style=flat)](http://cocoapods.org/pods/Hippolyte)
