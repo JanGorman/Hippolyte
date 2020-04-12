@@ -33,6 +33,18 @@ open class Hippolyte {
     hooks.forEach { $0.load() }
   }
 
+  /// The resume method to tell Hippolyte to resume stubbing. This method has the same behaviour as start emthod and provided only for better readability
+  public func resume() {
+    start()
+  }
+
+  /// The pause method to tell Hippolyte to pause stubbing. This method is not destructive and it will not clear stubs
+  public func pause() {
+    guard isStarted else { return }
+    unloadHooks()
+    isStarted = false
+  }
+
   /// The stop method to tell Hippolyte to stop stubbing.
   public func stop() {
     unloadHooks()
