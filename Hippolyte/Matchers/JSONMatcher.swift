@@ -25,7 +25,7 @@ public final class JSONMatcher<T: Decodable & Hashable>: Matcher {
     hasher.combine(object)
   }
 
-  override func isEqual(to other: Matcher) -> Bool {
+  public override func isEqual(to other: Matcher) -> Bool {
     if let theOther = other as? JSONMatcher<T> {
       return theOther.object == object
     }

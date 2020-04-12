@@ -5,7 +5,7 @@
 import Foundation
 
 public final class DataMatcher: Matcher {
-
+    
   let data: Data
 
   public init(data: Data) {
@@ -20,7 +20,7 @@ public final class DataMatcher: Matcher {
     hasher.combine(data)
   }
 
-  override func isEqual(to other: Matcher) -> Bool {
+  public override func isEqual(to other: Matcher) -> Bool {
     if let theOther = other as? DataMatcher {
       return theOther.data == data
     }

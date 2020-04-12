@@ -24,7 +24,7 @@ public final class StringMatcher: Matcher {
     hasher.combine(string)
   }
 
-  override func isEqual(to other: Matcher) -> Bool {
+  public override func isEqual(to other: Matcher) -> Bool {
     if let theOther = other as? StringMatcher {
       return theOther.string == string
     }

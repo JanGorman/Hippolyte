@@ -4,21 +4,23 @@
 
 import Foundation
 
-public class Matcher: Hashable {
+open class Matcher: Hashable {
 
-  func matches(string: String?) -> Bool {
+  public init() {}
+
+  open func matches(string: String?) -> Bool {
     false
   }
 
-  func matches(data: Data?) -> Bool {
+  open func matches(data: Data?) -> Bool {
     false
   }
 
-  func isEqual(to other: Matcher) -> Bool {
+  open func isEqual(to other: Matcher) -> Bool {
     false
   }
 
-  public func hash(into hasher: inout Hasher) {
+  open func hash(into hasher: inout Hasher) {
   }
 
   public static func ==(lhs: Matcher, rhs: Matcher) -> Bool {
