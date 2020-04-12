@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class Matcher: Hashable {
+open class Matcher: Hashable {
 
   func matches(string: String?) -> Bool {
     false
