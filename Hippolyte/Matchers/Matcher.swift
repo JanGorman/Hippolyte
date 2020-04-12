@@ -6,6 +6,8 @@ import Foundation
 
 open class Matcher: Hashable {
 
+  public init() {}
+
   open func matches(string: String?) -> Bool {
     false
   }
