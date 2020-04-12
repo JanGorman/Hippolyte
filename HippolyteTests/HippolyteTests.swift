@@ -122,6 +122,43 @@ final class HippolyteTests: XCTestCase {
 
     XCTAssertEqual(delegate.redirectCallCount, 0)
   }
+
+  func testThatHippolyteCouldBePausedAndResumed() {
+    let url = URL(string: "http://www.apple.com")!
+    var stub = StubRequest(method: .GET, url: url)
+    var response = StubResponse()
+    let body = Data("Hippolyte".utf8)
+    response.body = body
+    stub.response = response
+    Hippolyte.shared.add(stubbedRequest: stub)
+
+    Hippolyte.shared.start()
+
+    let firstExpectation = self.expectation(description: "Stubs network calls")
+    URLSession(configuration: .default).dataTask(with: url) { data, _, _ in
+    XCTAssertEqual(data, body)
+    firstExpectation.fulfill()
+    }.resume()
+    wait(for: [firstExpectation], timeout: 1)
+
+    Hippolyte.shared.pause()
+
+    let secondExpectation = self.expectation(description: "Stubs network calls paused")
+    URLSession(configuration: .default).dataTask(with: url) { data, _, _ in
+      XCTAssertNotEqual(data, body)
+      secondExpectation.fulfill()
+    }.resume()
+    wait(for: [secondExpectation], timeout: 1)
+
+    Hippolyte.shared.resume()
+
+    let thirdExpectation = self.expectation(description: "Stubs network calls resumed")
+    URLSession(configuration: .default).dataTask(with: url) { data, _, _ in
+      XCTAssertEqual(data, body)
+      thirdExpectation.fulfill()
+    }.resume()
+    wait(for: [thirdExpectation], timeout: 1)
+  }
 }
 
 final class BlockRedirectDelegate: NSObject, URLSessionDelegate, URLSessionTaskDelegate {
