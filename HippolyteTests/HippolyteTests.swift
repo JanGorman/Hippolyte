@@ -136,8 +136,8 @@ final class HippolyteTests: XCTestCase {
 
     let firstExpectation = self.expectation(description: "Stubs network calls")
     URLSession(configuration: .default).dataTask(with: url) { data, _, _ in
-    XCTAssertEqual(data, body)
-    firstExpectation.fulfill()
+      XCTAssertEqual(data, body)
+      firstExpectation.fulfill()
     }.resume()
     wait(for: [firstExpectation], timeout: 1)
 

@@ -24,9 +24,11 @@ open class Hippolyte {
 
   /// The start method to call for Hippolyte to start intercepting and stubbing HTTP calls
   public func start() {
-    guard !isStarted else { return }
+    guard !isStarted else {
+      return
+    }
     loadHooks()
-    isStarted = true
+    isStarted.toggle()
   }
 
   private func loadHooks() {
@@ -40,9 +42,11 @@ open class Hippolyte {
 
   /// The pause method to tell Hippolyte to pause stubbing. This method is not destructive and it will not clear stubs
   public func pause() {
-    guard isStarted else { return }
+    guard isStarted else {
+      return
+    }
     unloadHooks()
-    isStarted = false
+    isStarted.toggle()
   }
 
   /// The stop method to tell Hippolyte to stop stubbing.
