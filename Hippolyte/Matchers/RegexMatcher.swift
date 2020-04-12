@@ -23,7 +23,7 @@ public final class RegexMatcher: Matcher {
     hasher.combine(regex)
   }
 
-  override func isEqual(to other: Matcher) -> Bool {
+  public override func isEqual(to other: Matcher) -> Bool {
     if let theOther = other as? RegexMatcher {
       return theOther.regex == regex
     }

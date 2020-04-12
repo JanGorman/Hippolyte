@@ -4,17 +4,17 @@
 
 import Foundation
 
-open class Matcher: Hashable {
+public class Matcher: Hashable {
 
-  func matches(string: String?) -> Bool {
+  public func matches(string: String?) -> Bool {
     false
   }
 
-  func matches(data: Data?) -> Bool {
+  public func matches(data: Data?) -> Bool {
     false
   }
 
-  func isEqual(to other: Matcher) -> Bool {
+  public func isEqual(to other: Matcher) -> Bool {
     false
   }
 
