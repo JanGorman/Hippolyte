@@ -59,7 +59,7 @@ func testStub() {
     .addResponse(response)
     .build()
   // Register the request
-  Hippolyte.shared.add(stubbedRequest: stub)
+  Hippolyte.shared.add(stubbedRequest: request)
   // And start intercepting requests by calling start
   Hippolyte.shared.start()
   …
