@@ -32,6 +32,25 @@ final class HippolyteTests: XCTestCase {
 
     Hippolyte.shared.clearStubs()
   }
+    
+  func testStopHippolyte() {
+    let url = URL(string: "http://www.apple.com")!
+    var stub = StubRequest(method: .GET, url: url)
+    let response = StubResponse(statusCode: 404)
+    stub.response = response
+    Hippolyte.shared.add(stubbedRequest: stub)
+    
+    Hippolyte.shared.stop()
+    XCTAssertTrue(Hippolyte.shared.stubbedRequests.isEmpty)
+    
+    Hippolyte.shared.add(stubbedRequest: stub)
+    Hippolyte.shared.start()
+    XCTAssertFalse(Hippolyte.shared.stubbedRequests.isEmpty)
+    Hippolyte.shared.stop()
+    XCTAssertTrue(Hippolyte.shared.stubbedRequests.isEmpty)
+    
+    Hippolyte.shared.clearStubs()
+  }
 
   func testStubIsReplaceable() {
     let url = URL(string: "http://www.apple.com")!
