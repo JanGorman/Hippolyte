@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name               = "Hippolyte"
-  s.version            = "1.2.1"
+  s.version            = "1.2.2"
   s.swift_version      = "5.0"
   s.summary            = "HTTP Stubbing in Swift"
                       
