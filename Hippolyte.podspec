@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name               = "Hippolyte"
-  s.version            = "1.2.2"
+  s.version            = "1.2.3"
   s.swift_version      = "5.0"
   s.summary            = "HTTP Stubbing in Swift"
                       
@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.author             = { "Jan Gorman" => "gorman.jan@gmail.com" }
   s.social_media_url   = "http://twitter.com/JanGorman"
 
-  s.ios.deployment_target = '9.3'
+  s.ios.deployment_target = '12.0'
   s.osx.deployment_target = '10.13'
 
   s.source             = { :git => "https://github.com/JanGorman/Hippolyte.git", :tag => s.version}

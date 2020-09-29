@@ -11,9 +11,8 @@ An HTTP stubbing library written in Swift.
 ## Requirements
 
 - Swift 5
-- iOS 9.3+
+- iOS 12+
 - macOS 10.13+
-- Xcode 10.2+
 
 ## Install
 
@@ -37,8 +36,8 @@ Then run `carthage update`.
 
 Add the Hippolyte.framework to the `Link Binary with Libraries`.
 
-You'll need to go through some additional steps. 
-Please see [here](https://github.com/Carthage/Carthage#quick-start). 
+You'll need to go through some additional steps.
+Please see [here](https://github.com/Carthage/Carthage#quick-start).
 
 ## Usage
 
