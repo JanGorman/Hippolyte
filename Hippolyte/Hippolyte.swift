@@ -50,10 +50,8 @@ open class Hippolyte {
   /// The stop method to tell Hippolyte to stop stubbing.
   public func stop() {
     clearStubs()
-    if isStarted {
-      unloadHooks()
-      isStarted = false
-    }
+    unloadHooks()
+    isStarted = false
   }
 
   private func unloadHooks() {
