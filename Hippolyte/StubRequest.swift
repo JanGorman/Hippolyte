@@ -108,7 +108,7 @@ public struct StubRequest: Hashable {
   }
 
   private func matchesBody(_ body: Data?) -> Bool {
-    guard let bodyMatcher = bodyMatcher, let body = body else {
+    guard let bodyMatcher = bodyMatcher else {
       return true
     }
     return bodyMatcher.matches(data: body)
