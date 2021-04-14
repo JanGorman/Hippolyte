@@ -89,6 +89,19 @@ final class StubRequestTests: XCTestCase {
 
     XCTAssertTrue(stub.matchesRequest(request))
   }
+  
+  func testBodyMatchesChecksNil() {
+    var stub = StubRequest(method: .GET, url: URL(string: "http://www.apple.com")!)
+    // Desired a "data" body.
+    stub.bodyMatcher = DataMatcher(data: Data("data".utf8))
+
+    var request = TestRequest(method: .GET, url: URL(string: "http://www.apple.com")!)
+    // The actual body is `nil`.
+    request.body = nil
+
+    // "data" body matcher should not match `nil`.
+    XCTAssertFalse(stub.matchesRequest(request))
+  }
 
   func testBuilderProducesStubs() throws {
     let builder = StubRequest.Builder()
