@@ -26,6 +26,8 @@
 		77A2EA9F1F6561A30051E45A /* HippolyteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A2EA9E1F6561A30051E45A /* HippolyteTests.swift */; };
 		77B806641F63E33A0077A365 /* HTTPStubURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B806631F63E33A0077A365 /* HTTPStubURLProtocol.swift */; };
 		77B806661F63E5670077A365 /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B806651F63E5670077A365 /* HTTPRequest.swift */; };
+		79FBA093268F012C00A2519B /* ResponseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FBA092268F012C00A2519B /* ResponseDelegate.swift */; };
+		79FBA094268F012C00A2519B /* ResponseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FBA092268F012C00A2519B /* ResponseDelegate.swift */; };
 		ABD79AD622CD5F24003C9D8B /* JSONMatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD79AD522CD5F24003C9D8B /* JSONMatcherTests.swift */; };
 		E64B0ED3223ACCF900FB35E4 /* Hippolyte.h in Headers */ = {isa = PBXBuildFile; fileRef = 77A290D11F62EADF001E70FA /* Hippolyte.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E64B0ED4223ACD0D00FB35E4 /* Hippolyte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A290E81F62EDF5001E70FA /* Hippolyte.swift */; };
@@ -96,6 +98,7 @@
 		77A2EA9E1F6561A30051E45A /* HippolyteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HippolyteTests.swift; sourceTree = "<group>"; };
 		77B806631F63E33A0077A365 /* HTTPStubURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPStubURLProtocol.swift; sourceTree = "<group>"; };
 		77B806651F63E5670077A365 /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
+		79FBA092268F012C00A2519B /* ResponseDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseDelegate.swift; sourceTree = "<group>"; };
 		ABD79AD522CD5F24003C9D8B /* JSONMatcherTests.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = JSONMatcherTests.swift; sourceTree = "<group>"; tabWidth = 2; usesTabs = 0; };
 		E64B0ECB223ACB6300FB35E4 /* Hippolyte.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hippolyte.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E64B0EE3223ACE8400FB35E4 /* HippolyteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HippolyteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,6 +177,7 @@
 				7766CF9D1F652D8F00B717B2 /* URLHook.swift */,
 				F2F8EA8B2312DE5B00D1FBC4 /* Matchers */,
 				7766CFA11F65311200B717B2 /* URL+HippolyteAdditions.swift */,
+				79FBA092268F012C00A2519B /* ResponseDelegate.swift */,
 			);
 			path = Hippolyte;
 			sourceTree = "<group>";
@@ -430,6 +434,7 @@
 				F2F8EA8D2312DE7400D1FBC4 /* StringMatcher.swift in Sources */,
 				77A290F11F62F241001E70FA /* URLSessionHook.swift in Sources */,
 				77A290ED1F62EEC2001E70FA /* StubResponse.swift in Sources */,
+				79FBA093268F012C00A2519B /* ResponseDelegate.swift in Sources */,
 				77A290E91F62EDF5001E70FA /* Hippolyte.swift in Sources */,
 				77A290EB1F62EE40001E70FA /* StubRequest.swift in Sources */,
 				7766CF9E1F652D8F00B717B2 /* URLHook.swift in Sources */,
@@ -466,6 +471,7 @@
 				F2F8EA942312E84400D1FBC4 /* StringMatcher.swift in Sources */,
 				E64B0ED8223ACD0D00FB35E4 /* URLSessionHook.swift in Sources */,
 				E64B0ED6223ACD0D00FB35E4 /* StubResponse.swift in Sources */,
+				79FBA094268F012C00A2519B /* ResponseDelegate.swift in Sources */,
 				E64B0ED4223ACD0D00FB35E4 /* Hippolyte.swift in Sources */,
 				E64B0ED5223ACD0D00FB35E4 /* StubRequest.swift in Sources */,
 				E64B0EDB223ACD0D00FB35E4 /* URLHook.swift in Sources */,
