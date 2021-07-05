@@ -130,6 +130,12 @@ func testStub() throws {
 }
 ```
 
+### Delegate
+
+You can add an optional `ResponseDelegate` into the mix to be notified when a response is mocked by Hippolyte. It has only one method `onResponse`.
+
+### Teardown
+
 Remember to tear down stubbing in your tests:
 
 ```swift
