@@ -178,6 +178,29 @@ final class HippolyteTests: XCTestCase {
     }.resume()
     wait(for: [thirdExpectation], timeout: 1)
   }
+    
+  func testDelegateCalledWhenThereIsResponse() {
+    let url = URL(string: "http://www.apple.com")!
+    var stub = StubRequest(method: .GET, url: url)
+    let expectation = self.expectation(description: "Notifies delegate")
+
+    let response = StubResponse.Builder()
+        .stubResponse(withStatusCode: 200)
+        .addDelegate(TestResponseDelegate {
+            expectation.fulfill()
+        })
+        .build()
+    stub.response = response
+
+    Hippolyte.shared.add(stubbedRequest: stub)
+
+    let request = TestRequest(method: .GET, url: url)
+    _ = try? Hippolyte.shared.response(for: request)
+     
+    wait(for: [expectation], timeout: 1)
+    Hippolyte.shared.clearStubs()
+  }
+    
 }
 
 final class BlockRedirectDelegate: NSObject, URLSessionDelegate, URLSessionTaskDelegate {
@@ -192,4 +215,17 @@ final class BlockRedirectDelegate: NSObject, URLSessionDelegate, URLSessionTaskD
     completionHandler(nil)
   }
 
+}
+
+final class TestResponseDelegate: ResponseDelegate {
+    
+    private let assertFunction: () -> Void
+    
+    init(_ assertFunction: @escaping () -> Void) {
+        self.assertFunction = assertFunction
+    }
+    
+    func onResponse() {
+        assertFunction()
+    }
 }

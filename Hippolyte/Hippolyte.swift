@@ -97,6 +97,7 @@ open class Hippolyte {
     guard let response = stubbedRequests.first(where: { $0.matchesRequest(request) })?.response else {
       throw HippolyteError.unmatchedRequest
     }
+    response.delegate?.onResponse?()
     return response
   }
 

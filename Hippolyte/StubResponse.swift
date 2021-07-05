@@ -50,6 +50,13 @@ public struct StubResponse: HTTPStubResponse, Equatable {
       response.headers[key] = value
       return self
     }
+    
+    @discardableResult
+    public func addDelegate(_ delegate: ResponseDelegate) -> Builder {
+        assert(response != nil)
+        response.delegate = delegate
+        return self
+    }
 
     public func build() -> StubResponse {
       response
@@ -62,6 +69,7 @@ public struct StubResponse: HTTPStubResponse, Equatable {
   public var body: Data?
   public let shouldFail: Bool
   public let error: NSError?
+  public var delegate: ResponseDelegate?
 
   /// Initialize a default response with statusCode 200 and empty body
   public init() {
@@ -88,6 +96,10 @@ public struct StubResponse: HTTPStubResponse, Equatable {
     headers = [:]
     shouldFail = false
     error = nil
+  }
+    
+  public static func == (lhs: StubResponse, rhs: StubResponse) -> Bool {
+    lhs.statusCode == rhs.statusCode && lhs.headers == rhs.headers && lhs.body == rhs.body && lhs.shouldFail == rhs.shouldFail
   }
 
 }
