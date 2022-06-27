@@ -29,6 +29,11 @@ final class HTTPStubURLProtocol: URLProtocol {
 
   private var urlSessionTask: URLSessionTask?
 
+  // Occasionally called by iOS, even though init(task:...) is implemented. Will cause a crash if not present.
+  override init(request: URLRequest, cachedResponse: CachedURLResponse?, client: URLProtocolClient?) {
+     super.init(request: request, cachedResponse: cachedResponse, client: client)
+  }
+
   @available(iOS 8, *)
   init(task: URLSessionTask, cachedResponse: CachedURLResponse?, client: URLProtocolClient?) {
     super.init(request: task.currentRequest!, cachedResponse: cachedResponse, client: client)
