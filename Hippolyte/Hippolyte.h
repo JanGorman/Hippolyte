@@ -6,7 +6,7 @@
 //  Copyright © 2017 Jan Gorman. All rights reserved.
 //
 
-@import Foundation;
+#import <Foundation/Foundation.h>
 
 //! Project version number for Hippolyte.
 FOUNDATION_EXPORT double HippolyteVersionNumber;
